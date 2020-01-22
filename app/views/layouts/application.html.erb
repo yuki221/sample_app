@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>DeviseRails5</title>
+        <title>SampleApp</title>
         <%= csrf_meta_tags %>
 
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -10,54 +10,49 @@
 
     <body>
         <header>
-            <nav>
-                <% if user_signed_in? %>
-                <strong><%= link_to current_user.username, pages_show_path %></strong>
-                <%= link_to 'プロフィール変更', edit_user_registration_path %>
-                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-            <% else %>
-                <%= link_to 'サインアップ', new_user_registration_path %>
-                <%= link_to 'ログイン', new_user_session_path %>
-                <% end %>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+            <a class="navbar-brand" href="/pages/home">SHARE</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+
+      <a class="nav-item nav-link active" href="/pages/help">Help <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="/pages/about">About</a>
+
+      <% if user_signed_in? %>
+      <strong><%= link_to current_user.username, pages_show_path %></strong>
+      <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+      <%= link_to 'プロフィール変更', edit_user_registration_path %>
+
+      <% else %>
+
+      <a class="nav-item nav-link" href="../users/sign_up">サインアップ</a>
+      <a class="nav-item nav-link" href="../users/sign_in">ログイン</a>
+
+      <% end %>
+      </div>
+      </div>
+
             </nav>
+
+
         </header>
 
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
 
         <%= yield %>
-    <title>ChrisApp</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
 
-
-  <body>
-  <header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light ">
-  <a class="navbar-brand" href="/pages/home">SHARE</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="/pages/help">Help <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="/pages/about">About</a>
-
-      </div>
-  </div>
-</nav>
-</header>
 
     <% flash.each do |message_type, message| %>
         <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
       <% end %>
 
-    <%= yield %>
+
 
     <%= debug(params) if Rails.env.development? %>
   </body>
