@@ -11,9 +11,14 @@ class ApplicationController < ActionController::Base
             redirect_to new_user_session_url unless user_signed_in?
         end
 
+        def image_params
+         params.require(:image).permit(:title, :body, :image)
+        end
+        Refile.secret_key = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+
     protected
     def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
-      devise_parameter_sanitizer.permit(:account_update, keys: [:username])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :image])
+      devise_parameter_sanitizer.permit(:account_update, keys: [:username, :image])
     end
 end
