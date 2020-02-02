@@ -5,6 +5,8 @@ class PostsController < ApplicationController
 
   def index
     @post = Post.all
+    @posts = Post.find_by(params[:id])
+    @user = User.find_by(id: @posts.user_id)
   end
 
   def create
