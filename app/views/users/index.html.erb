@@ -12,7 +12,7 @@
           <% if user.image_id.present? %>
             <%= image_tag attachment_url(user, :image, :fill, 70, 70, format: "jpg"), class: 'user-img' %>
           <% else %>
-            <%= image_tag('/images/yakei.jpeg', size: '70x70', class: 'user-img') %>
+            <%= image_tag('/images/default.jpg', size: '70x70', class: 'user-img') %>
           <% end %>
         </div>
       <% end %>

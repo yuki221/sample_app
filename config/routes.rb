@@ -8,7 +8,10 @@ Rails.application.routes.draw do
   get 'pages/about'
   get 'users/show'
   get 'users/index'
+  get 'posts/new'
+  get 'posts/index'
   root "pages#home"
+  resources :posts,          only: [:create, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 end
