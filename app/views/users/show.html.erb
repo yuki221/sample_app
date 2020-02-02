@@ -2,7 +2,7 @@
 <p>ユーザー用ページです。他ユーザーから見られるユーザーページです。</p>
 
 <% if current_user.image_id.present? %>
-<%= image_tag attachment_url(current_user, :image, :fill, 300, 300, format: "jpg") %>
+<%= image_tag attachment_url(current_user, :image, :fill, 70, 70, format: "jpg") %>
 <% else %>
-<%= image_tag('/images/yakei.jpeg', class: 'img-responsive padding-top-15') %>
+<%= image_tag('/images/default.jpg', class: 'img-responsive padding-top-15', :size =>'70x70') %>
 <% end %>

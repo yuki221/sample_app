@@ -1,0 +1,10 @@
+<div class="container">
+<h1 class="text-center">投稿一覧</h1>
+<% @post.each do |post| %>
+  <div class="col-md-4">
+    <%= post.title %>
+    <%= post.body %>
+    <%= post.user_id %>
+    </div>
+  <% end %>
+</div>
