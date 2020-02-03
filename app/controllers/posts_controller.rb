@@ -10,19 +10,21 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(
-      post_params,
-      user_id: current_user.id)
+    @post = current_user.posts.build(
+      post_params)
     if @post.save
       redirect_to root_path, notice: '投稿しました'
     else
-      render :new
+      render 'pages/about'
     end
+  end
+
+  def destroy
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :photo_id)
+    params.require(:post).permit(:title, :body, :photo)
   end
 end
