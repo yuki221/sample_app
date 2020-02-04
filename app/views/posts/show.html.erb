@@ -1,0 +1,12 @@
+
+<p>各投稿がみれるページです。</p>
+<%= @post.title %>
+<%= @post.body %>
+<%= @user.username %>
+<% if @post.image_id.present? %>
+        <div class="post-img">
+          <%= image_tag attachment_url(@post, :image, :fill, 350, 250, format: "jpg"), class: 'post-photo' %>
+          </div>
+          <% else %>
+<%= image_tag('/images/default.jpg', class: 'img-responsive padding-top-15') %>
+<% end %>
