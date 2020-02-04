@@ -8,5 +8,9 @@
           <%= image_tag attachment_url(@post, :image, :fill, 350, 250, format: "jpg"), class: 'post-photo' %>
           </div>
           <% else %>
-<%= image_tag('/images/default.jpg', class: 'img-responsive padding-top-15') %>
+<%= image_tag('/images/default.jpg', size: '350x250', class: 'img-responsive padding-top-15') %>
+
+<% end %>
+<% if current_user == @post.user %>
+<%= link_to "削除", post_path, method: :delete %>
 <% end %>
