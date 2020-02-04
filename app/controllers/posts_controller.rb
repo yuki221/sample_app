@@ -9,6 +9,12 @@ class PostsController < ApplicationController
     @user = User.find_by(id: @posts.user_id)
   end
 
+  def destroy
+    @post = Post.find_by(id: params[:id])
+    @post.destroy
+    redirect_to root_path
+  end
+
   def index
     @post = Post.all
     @posts = Post.find_by(params[:id])
@@ -23,9 +29,6 @@ class PostsController < ApplicationController
     else
       render 'pages/about'
     end
-  end
-
-  def destroy
   end
 
   private
