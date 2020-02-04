@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'users/index'
   get 'posts/new'
   get 'posts/index'
+  get 'posts/show/:id' => 'posts#show'
   root "pages#home"
   resources :posts,          only: [:create, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

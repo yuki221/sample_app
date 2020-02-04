@@ -3,6 +3,12 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def show
+    @post = Post.find_by(id: params[:id])
+    @posts = Post.find_by(params[:id])
+    @user = User.find_by(id: @posts.user_id)
+  end
+
   def index
     @post = Post.all
     @posts = Post.find_by(params[:id])
