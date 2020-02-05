@@ -5,12 +5,13 @@
     <%= post.title %>
     <%= post.body %>
     <%= post.user_id %>
+    <%= link_to("詳しく", "/posts/show/#{post.id}") %>
     <% if post.image_id.present? %>
         <div class="post-img">
-          <%= image_tag attachment_url(post, :image, :fill, 350, 250, format: "jpg"), class: 'post-photo' %>
+          <%=link_to (image_tag attachment_url(post, :image, :fill, 350, 250,  format: "jpg")), "/posts/show/#{post.id}", class: 'post-photo' %>
           </div>
           <% else %>
-<%= image_tag('/images/default.jpg',size: '350x250', class: 'img-responsive padding-top-15') %>
+<%=link_to (image_tag('/images/default.jpg',size: '350x250', class: 'img-responsive padding-top-15')), "/posts/show/#{post.id}", class: 'post-photo' %>
 <% end %>
     <%= @user.username %>
     </div>
