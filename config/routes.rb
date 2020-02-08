@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'spot_pages/night'
+  get 'spot_pages/dinner'
   get 'users/new'
   devise_for :users
   get 'pages/index'
