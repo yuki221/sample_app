@@ -72,3 +72,4 @@ gem "refile-mini_magick", github: 'refile/refile-mini_magick'
 
 gem 'kaminari'
 gem 'faker',        '1.7.3'
+gem 'acts-as-taggable-on', '~> 6.0'
