@@ -34,6 +34,11 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :image)
+    params.require(:post).permit(:title, :body, :image, :tag_list)
+  end
+
+  def task_params
+    params.require(:user).permit(:name, :description, :tag_list)
+    #tag_list を追加
   end
 end
