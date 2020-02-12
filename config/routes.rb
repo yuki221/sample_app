@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get 'users/index'
   get 'posts/new'
   get 'posts/index'
+  get 'posts/night'
+  get 'posts/dinner'
   get "posts/show/:id" => "posts#show"
   delete 'posts/show/:id' => 'posts#destroy'
   root "pages#home"
