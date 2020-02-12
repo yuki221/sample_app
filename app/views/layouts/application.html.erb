@@ -29,7 +29,13 @@
        <strong><%= link_to current_user.username, pages_show_path %></strong>
       </div>
 
+      <div class="nav-item nav-link active">
+       <%= link_to '投稿する', posts_new_path %>
+      </div>
 
+      <div class="nav-item nav-link active">
+       <%= link_to '投稿一覧', posts_index_path %>
+      </div>
 
       <div class="nav-item nav-link active">
        <%= link_to 'ユーザー一覧', users_index_path %>
@@ -54,13 +60,6 @@
        <%= link_to "ログイン", user_session_path  %>
       </div>
 
-      <div class="nav-item nav-link active">
-       <%= link_to '投稿する', posts_new_path %>
-      </div>
-
-      <div class="nav-item nav-link active">
-       <%= link_to '投稿一覧', posts_index_path %>
-      </div>
 
       <% end %>
       </div>

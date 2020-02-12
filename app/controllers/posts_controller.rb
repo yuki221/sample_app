@@ -21,6 +21,14 @@ class PostsController < ApplicationController
     @user = User.find_by(id: @posts.user_id)
   end
 
+  def night
+     @spot = Post.tagged_with("夜景")
+     @post = Post.all
+     @posts = Post.find_by(params[:id])
+     @user = User.find_by(id: @posts.user_id)
+
+  end
+
   def create
     @post = current_user.posts.build(
       post_params)
@@ -35,10 +43,5 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :body, :image, :tag_list)
-  end
-
-  def task_params
-    params.require(:user).permit(:name, :description, :tag_list)
-    #tag_list を追加
   end
 end
