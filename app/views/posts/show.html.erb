@@ -3,6 +3,7 @@
 <%= @post.title %>
 <%= @post.body %>
 <%= @user.username %>
+
 <% if @post.image_id.present? %>
         <div class="post-img">
           <%= image_tag attachment_url(@post, :image, :fill, 350, 250, format: "jpg"), class: 'post-photo' %>
@@ -12,8 +13,11 @@
 
 <% end %>
 <div class="post-tag">
-<%= render 'posts/tag_list', tag_list: @post.tag_list %>
+<%= render 'posts/tag_list', tag_list: @posts.tag_list %>
 </div>
+
+<%= render 'posts/like' %>
+
 <% if current_user == @post.user %>
 <%= link_to "削除", post_path, method: :delete %>
 <% end %>

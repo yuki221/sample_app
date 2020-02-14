@@ -25,7 +25,10 @@ Rails.application.routes.draw do
   get "posts/show/:id" => "posts#show"
   delete 'posts/show/:id' => 'posts#destroy'
   root "pages#home"
-  resources :posts,          only: [:create, :destroy]
+  resources :posts,          only: [:create, :show, :destroy] do
+    resources :likes, only: [:create, :destroy]
+  end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 end
